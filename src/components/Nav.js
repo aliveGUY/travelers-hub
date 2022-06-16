@@ -21,10 +21,10 @@ export default function Navbar() {
     },
   ];
   return (
-    <nav className="Navbar">
+    <nav className="Navbar mt-3">
       <div className="navbar-Logo">
         <img className="navbar-img" src={logo} alt="Logo" />
-        <h1>Space Travelers&apos; Hub</h1>
+        <h1 className="mx-3">Space Travelers&apos; Hub</h1>
       </div>
       <ul className="navbar">
         {links.map((link) => (

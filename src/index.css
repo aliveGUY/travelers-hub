@@ -28,7 +28,6 @@
 }
 
 .nav-link {
-  text-decoration: none;
   color: rgb(1, 162, 255);
   font-size: 21px;
 }
@@ -40,10 +39,6 @@
 
 .navbar-li:nth-child(2) {
   border-right: 2px solid rgb(139, 139, 139);
-}
-
-.active {
-  text-decoration: underline;
 }
 
 /* Rockets */
@@ -146,4 +141,13 @@ img {
 
 .list-group-item {
   width: 70%;
+  padding-right: 235px;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.vert {
+  vertical-align: middle;
 }

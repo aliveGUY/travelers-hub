@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import { Provider } from 'react-redux/es/exports';
 import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import App from './App';
 import store from './redux/config';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

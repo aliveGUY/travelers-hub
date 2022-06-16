@@ -7,19 +7,17 @@ export default function MyProfile() {
   const missions = data.filter((mission) => mission.reserved);
   const reservedRockets = useSelector((state) => state.rockets).filter((rocket) => rocket.reserved);
   return (
-    <div>
-      <div className="MyProfile-Missions">
-        <div className="MyProfile-Missions-Wraper">
-          <h1>My Missions</h1>
-          <div className="MyProfile-Mission">
-            {missions.map((mission) => (
-              <h2 key={mission.mission_id}>{mission.mission_name}</h2>
-            ))}
-          </div>
-        </div>
+    <div className="d-flex">
+      <div className="MyProfile-Rockets mx-5">
+        <h1 className="mt-2">My Rockets</h1>
+        <ListGroup>
+          {missions.map((mission) => (
+            <ListGroup.Item key={mission.mission_id} className="h3">{mission.mission_name}</ListGroup.Item>
+          ))}
+        </ListGroup>
       </div>
       <div className="MyProfile-Rockets">
-        <h1>My Rockets</h1>
+        <h1 className="mt-2">My Rockets</h1>
         <ListGroup>
           {reservedRockets.map(
             (rocket) => <ListGroup.Item key={rocket.id} className="h3">{rocket.name}</ListGroup.Item>,
