@@ -1,16 +1,26 @@
-import React from 'react';
+import axios from 'axios';
 import '@testing-library/jest-dom';
-import { render as rtlRender, fireEvent, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import App from './App';
+import { render } from '@testing-library/react';
+import { loadMissions } from './redux/missions/Redux-Missions';
+import Missions from './components/Missions';
 import store from './redux/config';
 
-const render = (component) => rtlRender(<Provider store={store}>{component}</Provider>);
+describe('Fetching Tests', () => {
+  it('Fetching Missions', async () => {
+    axios.post = jest.fn(() => Promise.resolve());
+    const dispatch = jest.fn();
 
-describe('Render of all components', () => {
-  test('Missions page loaded', () => {
-    render(<App />);
-    const missions = screen.getAllByAltText('[class="Missions-wrapper"]');
-    expect(missions).toBeInTheDocument();
+    await loadMissions()(dispatch);
+    expect(dispatch.mock.calls[1][0].type).toEqual('FETCH_MISSIONS/fulfilled');
+  });
+
+  it('Render Missions', async () => {
+    const { findByText } = render(
+      <Provider store={store}>
+        <Missions />
+      </Provider>,
+    );
+    expect(await findByText('Mission')).toBeInTheDocument();
   });
 });

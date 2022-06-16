@@ -5,10 +5,10 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './rockets/Redux-Rockets';
-import missionsReducer from './missions/Redux-Missions';
+import missionSlice from './missions/Redux-Missions';
 
 const rootReducer = combineReducers({
-  missions: missionsReducer,
+  missions: missionSlice,
   rockets: reducer,
 });
 

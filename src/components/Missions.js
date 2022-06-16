@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { reserveMission } from '../redux/missions/Redux-Missions';
+import { joinMission } from '../redux/missions/Redux-Missions';
 
 export default function Missions() {
   const missions = useSelector((state) => state.missions);
@@ -29,7 +29,7 @@ export default function Missions() {
                   className={`Mission-button ${mission.reserved ? 'reserved' : ''}`}
                   type="button"
                   onClick={() => {
-                    dispatch(reserveMission(mission.mission_id));
+                    dispatch(joinMission(mission.mission_id));
                   }}
                 >
                   {mission.reserved ? 'Leave Mission' : 'Join Mission'}
